@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+/* Plugins */
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+/* Class based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Typing Animation */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { opacity: 0 }
+  50% { opacity: 1 }
+}
+
+.typing-animation {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation:
+    typing 3s steps(30, end) forwards;
+}
+
+.cursor-animation {
+  display: inline-block;
+  animation:
+    blink-caret 0.75s step-end infinite;
+}
+
+/* Ensure proper video sizing */
+.aspect-video {
+  aspect-ratio: 16/9;
+}
+
+/* Smooth transitions */
+video {
+  transition: all 0.3s ease;
+}
